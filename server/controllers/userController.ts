@@ -1,13 +1,14 @@
 const CustomError = require('../error/CustomError')
 import { User } from "../models/user";
 import { IUser } from "../types/IUser";
-
+import { Request, Response, NextFunction } from 'express';
 
 class UserController {
 
-    async getUsers(req: any, res: any) {
-        const count = req.params.count || 10;
-        const offset = req.params.offset || 0;
+    async getUsers(req: Request, res: Response) {
+        const count = req.query.count || 10;
+      //  console.log(req)
+        const offset = req.query.offset || 0;
         const users = await User.find().skip(Number(offset)).limit(Number(count));
         if (users) {
           return res.status(200).json(users)
@@ -16,7 +17,7 @@ class UserController {
         }
     }
 
-    async addUser(req: any, res: any, next: any) {
+    async addUser(req: any, res: any, next: NextFunction) {
       const {name, email, age} = req.body
       if (!name || !email || !age) {
           const err = new CustomError(403, 'Name, email or age is not correct')
@@ -34,16 +35,6 @@ class UserController {
         return next(res.status(err.status).json({error: err.message}))
       }
 
-
-      // const candidate = await User.findOne({where: {email}})
-      // if (candidate) {
-      //     const err = new CustomError(403, 'Пользователь с таким email уже существует')
-      //     return next(res.status(err.status).json({error: err.message}))
-      // }
-      // const hashPassword = await bcrypt.hash(password, 5)
-      // const user = await User.create({email, role, password: hashPassword})
-      // const token = generateJwt(user.id, user.email, user.role)
-      // return res.json({token})
   }
 }
 

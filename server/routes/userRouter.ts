@@ -16,6 +16,6 @@ const { userValidationRules, validate } = require('../middleware/validator')
 // router.post('/registration', userController.registration)
 // router.post('/login', userController.login)
 router.get('/users', createLog, userController.getUsers);
-router.post('/users', userValidationRules(), validate, userController.addUser);
+router.post('/add', userValidationRules(), validate, userController.addUser);
 
 module.exports = router
