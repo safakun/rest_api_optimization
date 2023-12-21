@@ -7,9 +7,8 @@ class UserController {
 
     async getUsers(req: Request, res: Response) {
         const count = req.query.count || 10;
-      //  console.log(req)
         const offset = req.query.offset || 0;
-        const users = await User.find().skip(Number(offset)).limit(Number(count));
+        const users: IUser[] = await User.find().skip(Number(offset)).limit(Number(count));
         if (users) {
           return res.status(200).json(users)
         } else {
@@ -17,14 +16,14 @@ class UserController {
         }
     }
 
-    async addUser(req: any, res: any, next: NextFunction) {
+    async addUser(req: Request, res: Response, next: NextFunction) {
       const {name, email, age} = req.body
       if (!name || !email || !age) {
           const err = new CustomError(403, 'Name, email or age is not correct')
           return next(res.status(err.status).json({error: err.message}))
       }
 
-      const user = await User.create({
+      const user: IUser = await User.create({
         name, email, age
       })
 
