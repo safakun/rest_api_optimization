@@ -87,7 +87,7 @@ Created on node v.20.10.0
 - I installed cors package to be able to obtain requests from client 
 - Made refactoring for Mongodb connection with mongo_uri - added password and username for security. Mongoose connectOptions like useNewUrlParser and useUnifiedTopology are deprecated, option useCreateIndex is not supported
 - Added error handling, logging and input validation middleware
-- Added params count and offset to limit users queries for better performance
+- Added params count and offset to limit users queries for better performance, added index for user name. 
 - Refactored the code
 - Implemented typescript and types
 - Added rate limiting 
