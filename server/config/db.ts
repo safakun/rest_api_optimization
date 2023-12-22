@@ -1,13 +1,10 @@
 import mongoose, { ConnectOptions } from "mongoose";
  
 export default function connectDB() {
-  const url = process.env.MONGO_URI;
+  const url = String(process.env.MONGO_URI);
  
   try {
-    mongoose.connect(String(url), {
-        useNewUrlParser: true, 
-        useUnifiedTopology: true, 
-        useCreateIndex: true
+    mongoose.connect(url, {
     } as ConnectOptions);
   } catch (err: any) {
     console.error(err.message);

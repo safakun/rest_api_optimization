@@ -85,7 +85,7 @@ Created on node v.20.10.0
 
 - Best practice is to use sensitive data like passwords in .env files. So I installed and used package 'dotenv'. Also used port 5000 instead of 3000, because on port 3000 is used by frontend apps like React or Nextjs by default
 - I installed cors package to be able to obtain requests from client 
-- Made refactoring for Mongodb connection with mongo_uri - added password and username for security
+- Made refactoring for Mongodb connection with mongo_uri - added password and username for security. Mongoose connectOptions like useNewUrlParser and useUnifiedTopology are deprecated, option useCreateIndex is not supported
 - Added error handling, logging and input validation middleware
 - Added params count and offset to limit users queries for better performance
 - Refactored the code
