@@ -11,9 +11,11 @@ const userSchema = new mongoose.Schema<IUser>({
     },
     age: {
         type: Number,
-    }
+    }, 
 
 })
+
+userSchema.index({ name: 1})
 
 const User = mongoose.model("User", userSchema) 
 
