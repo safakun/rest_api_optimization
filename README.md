@@ -79,11 +79,11 @@ docker compose down
 
 Get all users (by default limited by 10)
 ```bash
-GET http://localhost:5000/api/user/users
+GET http://localhost:5000/api/users
 ```
 Add new user
 ```bash
-POST http://localhost:5000/api/user/add 
+POST http://localhost:5000/api/users/add 
 ```
 ```json
 {
