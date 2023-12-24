@@ -71,7 +71,10 @@ MONGO_URI=mongodb://mongodb:27017/test
 ```bash
 docker compose up
 ```
-
+To stop project
+```bash
+docker compose down
+```
 
 # Report
 
