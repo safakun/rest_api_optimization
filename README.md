@@ -76,15 +76,6 @@ To stop project
 docker compose down
 ```
 
-# Report
-
-- Made refactoring for Mongodb connection with mongo_uri - added password and username for security. Mongoose connectOptions like useNewUrlParser and useUnifiedTopology are deprecated, option useCreateIndex is not supported
-- Added error handling, logging and input validation middleware
-- Added params count and offset to limit users queries for better performance, added index for user name. 
-- Refactored the code
-- Implemented typescript and types
-- Added rate limiting 
-- Dockerised the app with docker compose
 
 Get all users (by default limited by 10)
 ```bash
