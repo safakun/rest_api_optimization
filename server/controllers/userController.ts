@@ -1,16 +1,10 @@
 const CustomError = require('../error/CustomError')
 import { User } from "../models/user";
-import { UserService } from "../services/userService";
 import { IUser } from "../types/IUser";
 import { Request, Response, NextFunction } from 'express';
 
 class UserController {
 
- // constructor(private userService: UserService) {}
-
-  // async getUsers() {
-  //    return this.userService.getUsers;
-  // }
     async getUsers(req: Request, res: Response) {
         const count = req.query.count || 10;
         const offset = req.query.offset || 0;
